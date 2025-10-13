@@ -342,7 +342,7 @@ Languages:
                     if not r.get("isFork", False)
                     and not r.get("nameWithOwner", "").startswith(f"{self.username}/")
                 ]
-            repos += contrib_nodes
+                repos += contrib_nodes
 
             for repo in repos:
                 if repo is None:
