@@ -335,7 +335,14 @@ Languages:
 
             repos = owned_repos.get("nodes", [])
             if not self._ignore_forked_repos:
-                repos += contrib_repos.get("nodes", [])
+                contrib_nodes = contrib_repos.get("nodes", [])
+                # Filtra via fork e repository non di proprietà dell'utente
+                contrib_nodes = [
+                    r for r in contrib_nodes
+                    if not r.get("isFork", False)
+                    and not r.get("nameWithOwner", "").startswith(f"{self.username}/")
+                ]
+            repos += contrib_nodes
 
             for repo in repos:
                 if repo is None:
