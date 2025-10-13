@@ -332,8 +332,10 @@ Languages:
             owned_repos = (
                 raw_results.get("data", {}).get("viewer", {}).get("repositories", {})
             )
-
+            
             repos = owned_repos.get("nodes", [])
+            
+            # Se NON vogliamo ignorare i forked repos, includiamo anche i contributi
             if not self._ignore_forked_repos:
                 contrib_nodes = contrib_repos.get("nodes", [])
                 # Filtra via fork e repository non di proprietà dell'utente
@@ -343,6 +345,9 @@ Languages:
                     and not r.get("nameWithOwner", "").startswith(f"{self.username}/")
                 ]
                 repos += contrib_nodes
+            else:
+                contrib_nodes = []  # definizione sicura per evitare errori
+
 
             for repo in repos:
                 if repo is None:
