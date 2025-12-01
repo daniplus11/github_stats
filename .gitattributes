@@ -1,2 +1,19 @@
 data export-ignore
 generated export-ignore
+
+
+node_modules/** linguist-vendored
+vendor/** linguist-vendored
+bower_components/** linguist-vendored
+
+dist/** linguist-generated
+build/** linguist-generated
+tmp/** linguist-generated
+public/** linguist-generated
+
+**/*.min.css linguist-vendored
+
+assets/css/** linguist-vendored
+static/css/** linguist-vendored
+
+**/*.css linguist-detectable=false
