@@ -15,5 +15,6 @@ public/** linguist-generated
 
 assets/css/** linguist-vendored
 static/css/** linguist-vendored
-
+**/*.css linguist-vendored
 **/*.css linguist-detectable=false
+
