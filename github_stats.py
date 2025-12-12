@@ -344,7 +344,7 @@ Languages:
                     if not r.get("isFork", False)
                     and not r.get("nameWithOwner", "").startswith(f"{self.username}/")
                 ]
-                repos += contrib_nodes
+                repos = owned_repos.get("nodes", [])
             else:
                 contrib_nodes = []  # definizione sicura per evitare errori
 
