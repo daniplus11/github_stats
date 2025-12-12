@@ -554,7 +554,7 @@ async def main() -> None:
             user,
             access_token,
             session,
-            exclude_langs=exclude_langs
+            exclude_langs=exclude_langs,
             ignore_forked_repos=True
         )
         print(await s.to_str())
